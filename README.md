@@ -1,2 +1,1 @@
-# docker-ml
-Docker for Machine Learning with Python3
+# Docker for Machine Learning with Python3
