@@ -1,0 +1,9 @@
+version: '1'
+services:
+  web:
+    build: .
+    image: ml:v1
+    ports:
+     - "8080:8080"
+    volumes:
+     - ./:./
