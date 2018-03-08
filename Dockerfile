@@ -28,4 +28,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# TODO
+RUN pip3 --no-cache-dir install \
+        ipykernel \
+        jupyter \
+        matplotlib \
+        numpy \
+        scipy \
+        sklearn \
+        pandas \
+        Pillow \
+        && \
+    python3 -m ipykernel.kernelspec
+
