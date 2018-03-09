@@ -40,3 +40,7 @@ RUN pip3 --no-cache-dir install \
         && \
     python3 -m ipykernel.kernelspec
 
+RUN pip3 --no-cache-dir install --upgrade \
+        tensorflow
+
+
