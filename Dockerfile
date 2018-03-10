@@ -29,18 +29,31 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     rm -rf /var/lib/apt/lists/*
 
 RUN pip3 --no-cache-dir install \
+        numpy \
+        scipy \
+        pandas \
+        sklearn \
         ipykernel \
         jupyter \
         matplotlib \
-        numpy \
-        scipy \
-        sklearn \
-        pandas \
+        seaborn \
+        Cython \
         Pillow \
+        requests \
         && \
     python3 -m ipykernel.kernelspec
 
 RUN pip3 --no-cache-dir install --upgrade \
-        tensorflow
-
+        http://download.pytorch.org/whl/torch-0.3.1-cp36-cp36m-macosx_10_7_x86_64.whl \
+        # http://download.pytorch.org/whl/cu80/torch-0.3.0.post4-cp27-cp27mu-linux_x86_64.whl 
+        torchvision \
+        tensorflow \
+        tensorflow-tensorboard \
+        # keras \
+        # xgboost \
+        # pymc3 \
+        # pystan \
+        # gensim \
+        # nltk \
+        # opencv-python
 
