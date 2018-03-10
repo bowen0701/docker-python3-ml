@@ -40,6 +40,7 @@ RUN pip3 --no-cache-dir install \
         Cython \
         Pillow \
         requests \
+        awscli \
         && \
     python3 -m ipykernel.kernelspec
 
@@ -47,8 +48,8 @@ RUN pip3 --no-cache-dir install --upgrade \
         http://download.pytorch.org/whl/torch-0.3.1-cp36-cp36m-macosx_10_7_x86_64.whl \
         # http://download.pytorch.org/whl/cu80/torch-0.3.0.post4-cp27-cp27mu-linux_x86_64.whl 
         torchvision \
-        tensorflow \
-        tensorflow-tensorboard \
+        # tensorflow \
+        # tensorflow-tensorboard \
         # keras \
         # xgboost \
         # pymc3 \
@@ -57,3 +58,24 @@ RUN pip3 --no-cache-dir install --upgrade \
         # nltk \
         # opencv-python
 
+# Set up our notebook config.
+COPY jupyter_notebook_config.py /root/.jupyter/
+
+# Copy sample notebooks.
+COPY notebooks /notebooks
+
+# Jupyter has issues with being run directly:
+#   https://github.com/ipython/ipython/issues/7062
+# We just add a little wrapper script.
+COPY run_jupyter.sh /
+
+# TensorBoard
+EXPOSE 6006
+# IPython
+EXPOSE 8888
+
+WORKDIR "/notebooks"
+
+RUN chmod +x /run_jupyter.sh
+
+CMD ["/run_jupyter.sh", "--allow-root"]
