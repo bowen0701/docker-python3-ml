@@ -28,7 +28,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN pip3 --no-cache-dir install \
+RUN pip3 --no-cache-dir install --upgrade pip \
         numpy \
         scipy \
         pandas \
@@ -44,9 +44,9 @@ RUN pip3 --no-cache-dir install \
         && \
     python3 -m ipykernel.kernelspec
 
-RUN pip3 --no-cache-dir install --upgrade \
-        http://download.pytorch.org/whl/torch-0.3.1-cp36-cp36m-macosx_10_7_x86_64.whl \
-        # http://download.pytorch.org/whl/cu80/torch-0.3.0.post4-cp27-cp27mu-linux_x86_64.whl \
+RUN pip3 --no-cache-dir install \
+        # http://download.pytorch.org/whl/torch-0.3.1-cp36-cp36m-macosx_10_7_x86_64.whl \
+        http://download.pytorch.org/whl/cpu/torch-0.3.1-cp36-cp36m-linux_x86_64.whl \
         torchvision
         # tensorflow \
         # tensorflow-tensorboard \
