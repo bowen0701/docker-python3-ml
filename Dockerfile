@@ -1,5 +1,6 @@
-# Ref1: https://store.docker.com/community/images/tensorflow/tensorflow
-# Ref2: https://store.docker.com/community/images/dash00/tensorflow-python3-jupyter
+# Docker settings: Ubuntu, Python3, pip, general machine learning frameworks, Jupyter Notebook.
+# Reference 1: https://store.docker.com/community/images/tensorflow/tensorflow
+# Reference 2: https://store.docker.com/community/images/dash00/tensorflow-python3-jupyter
 
 FROM ubuntu:16.04
 
