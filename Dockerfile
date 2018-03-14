@@ -73,8 +73,8 @@ EXPOSE 6006
 # IPython
 EXPOSE 8888
 
-WORKDIR "/notebooks"
+WORKDIR /notebooks
 
 RUN chmod +x /run_jupyter.sh
 
-CMD ["/run_jupyter.sh", "--allow-root"]
+CMD ["/run_jupyter.sh"]
