@@ -14,7 +14,8 @@
 
 - **Image:** is essentially blueprint of the containers for what we would like to build.
 - **Container:** is an instantiation of an image. (For us Pythonistas, we can think image is a class, and container is the class's initialized object. :-))
-- **Dockerfile:** is a  setup file to create/modify Docker images.
+- **Dockerfile:** is a setup file to create/modify Docker images.
+- **Docker-Compose:** is a tool for us to easily define and launch Docker applications.
 
 ## Docker Setup
 
