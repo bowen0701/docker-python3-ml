@@ -71,7 +71,7 @@ COPY notebooks /notebooks
 # We just add a little wrapper script.
 COPY run_jupyter.sh /
 
-# IPython
+# Jupyter Notebook
 EXPOSE 8888
 # TensorBoard
 # EXPOSE 6006
