@@ -71,10 +71,10 @@ COPY notebooks /notebooks
 # We just add a little wrapper script.
 COPY run_jupyter.sh /
 
-# TensorBoard
-EXPOSE 6006
 # IPython
 EXPOSE 8888
+# TensorBoard
+# EXPOSE 6006
 
 WORKDIR /notebooks
 
