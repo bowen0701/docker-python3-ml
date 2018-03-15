@@ -6,7 +6,7 @@ FROM ubuntu:16.04
 
 LABEL maintainer="Bowen Li <bowen0701@gmail.com>"
 
-# Pick up some TensorFlow dependencies.
+# Pick up some Python3 dependencies.
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
         curl \
@@ -29,6 +29,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# Install Python3 general packages.
 RUN pip3 install --upgrade pip \
         numpy \
         scipy \
@@ -45,6 +46,7 @@ RUN pip3 install --upgrade pip \
         && \
     python3 -m ipykernel.kernelspec
 
+# Install machine learning packages.
 RUN pip3 --no-cache-dir install --upgrade \
         http://download.pytorch.org/whl/cpu/torch-0.3.1-cp35-cp35m-linux_x86_64.whl \
         torchvision
