@@ -75,7 +75,7 @@ Finally, in this file we collect bash scripts to launch Jupyter Notebook. Note t
 
 ### Build Docker Image
 
-First build docker image with name `docker-ml:latest`, by Dockerfile or docker-compose.
+First build docker image with name `docker-ml:latest`, by docker CLI or docker-compose with Dockerfile.
 
 ```
 # Build docker image by Docker CLI.
