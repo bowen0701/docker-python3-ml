@@ -21,7 +21,7 @@
 
 ### Install Docker
 
-You can download and install docker on [docker website](https://www.docker.com/community-edition#/download), following the instructions you can finish the procedure easily. I choose Docker CE for Mac version.
+We can download and install docker on [docker website](https://www.docker.com/community-edition#/download), following the instructions we can finish the procedure easily. I choose Docker CE for Mac version. After installing we now have docker and docker-compose.
 
 ### Create Dockerfile
 
@@ -52,6 +52,111 @@ and machine learning frameworks, including
 
 Finally, the remaining is to set up Jupyter Notebook. Note that we expose docker's port 8888 to Jupyter Notebook.
 
+Note that of courese we can add/delete any general / machine learning packages in Dockerfile, as our needs.
+
 ### Create docker-compose.yml
 
-TBD
+To apply scripts as environment, we could create docker-compose.yml for us to easily launch docker; for details please refer to [docker-compose.yml](./docker-compose.yml). In this file we assign what docker image (docker-ml:latest) we would like to use, what ports (8888:8888) to connect and what volums (./notebooks:/notebooks) to share data between our docker container and the host computer. Note that we use docker-compose.yml's version 3 format.
+
+### Create jupyter_notebook_config.py
+
+In this file, we set up Jupyter Notebook's IP, port and password, if set in environment. This jupyter_notebook_config.py will be copied to replace the original one in /root/.jupyter/. Note that basically we do not have to edit this file anymore.
+
+### Create run_jupyter.sh
+
+Finally, in this file we collect bash scripts to launch Jupyter Notebook. Note that
+
+- --allow-root: is needed, since we use root to launch docker.
+- --port 8888: must be the same as docker's port for Jupyter Notebook.
+- --ip 0.0.0.0: reassign Jupyter Notebook server's IP.
+- --NotebookApp.token='': optional, for simplicity we here disable the toker authentification. Note that this is not recommended for security reasons. Nevertheless, since I choose this to test launch on my local laptop I think it is ok for now.
+
+## Launch Docker
+
+### Build Docker Image
+
+First build docker image with name `docker-ml:latest`, by Dockerfile or docker-compose.
+
+```
+# Build docker image by Docker CLI.
+sudo docker build -t docker-ml:latest .
+
+# Alternative, (re-)build by docker-compose, if needed.
+docker-compose build
+```
+
+Now we can check docker images.
+
+```
+sudo docker images
+```
+
+### Create Docker Container
+
+First based on newly built docker image, `docker-ml:latest`, to create docker container.
+
+```
+# Run docker image to create a container, by docker CLI.
+sudo docker run -it -p 8888:8888 docker-ml:latest
+# Run in background mode.
+sudo docker run -dt -p 8888:8888 docker-ml:latest
+
+# Alternatively, run using docker-compose with docker-compose.yaml.
+docker-compose up
+# Run docker compose in background.
+docker-compose up -d
+```
+
+Then we can check docker container status:
+
+```
+docker ps -a
+```
+
+**Remarks:**
+
+- Remarks 1: If cannot access jupyter notebook server on browser, maybe port 8888 is ocupied by some unknown process, run this:
+
+```
+lsof -ti:8888 | xargs kill -9
+```
+
+- Remarks 2: If your docker-compose is abnormally slow, add one of these in /etc/hosts by `sudo vim /etc/hosts`.
+
+```
+127.0.0.1 localunixsocket
+127.0.0.1 localunixsocket.local
+```
+
+### Start/Stop Docker Container
+
+```
+# Start/stop/restart docker container
+sudo docker start <docker_container_id>
+sudo docker stop <docker_container_id>
+sudo docker restart <docker_container_id>
+
+# Stop/kill by docker compose.
+docker-compose stop
+docker-compose down
+```
+
+### Go into Bash Mode
+
+```
+# Go into /bin/bash mode.
+docker exec -it <docker_container_id> /bin/bash
+
+# Exit bash mode.
+exit
+```
+
+### Remove Docker Container / Image
+
+```
+# Remove docker container.
+sudo docker rm <docker_container_id>
+
+# Remove docker images.
+sudo docker rmi <docker_image_id>
+```
