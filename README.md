@@ -13,7 +13,7 @@
 ## Docker Terminology
 
 - **Image:** is essentially blueprint of the containers for what we would like to build.
-- **Container:** is an instantiation of an image. (For us Pythonistas, we can think image is a class, and container is the class's initialized object. :-))
+- **Container:** is an instantiation of an image (For us Pythonistas, we can think image is a class, and container is the class's initialized object).
 - **Dockerfile:** is a setup file to create/modify Docker images.
 - **Docker-Compose:** is a tool for us to easily define and launch Docker applications.
 
@@ -66,10 +66,10 @@ In this file, we set up Jupyter Notebook's IP, port and password, if set in envi
 
 Finally, in this file we collect bash scripts to launch Jupyter Notebook. Note that
 
-- --allow-root: is needed, since we use root to launch docker.
-- --port 8888: must be the same as docker's port for Jupyter Notebook.
-- --ip 0.0.0.0: reassign Jupyter Notebook server's IP.
-- --NotebookApp.token='': optional, for simplicity we here disable the toker authentification. Note that this is not recommended for security reasons. Nevertheless, since I choose this to test launch on my local laptop I think it is ok for now.
+- `--allow-root`: is needed, since we use root to launch docker.
+- `--port 8888`: must be the same as docker's port for Jupyter Notebook.
+- `--ip 0.0.0.0`: reassign Jupyter Notebook server's IP.
+- `--NotebookApp.token=''`: optional, for simplicity we here disable the toker authentification. Note that this is not recommended for security reasons. Nevertheless, since I choose this to test launch on my local laptop I think it is ok for now.
 
 ## Launch Docker
 
@@ -160,3 +160,5 @@ sudo docker rm <docker_container_id>
 # Remove docker images.
 sudo docker rmi <docker_image_id>
 ```
+
+Now enjoy your docker for machine learning with Python3. :-)
