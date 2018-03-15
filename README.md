@@ -27,7 +27,7 @@ We can download and install docker on [docker website](https://www.docker.com/co
 
 Many people leverage dockers contributed from many others, this is convenient and efficient for us to ramp up fast. Nevertheless, I prefer making my own docker (almost) from scratch, from this experience I can learn a lot and acquire fundamental knowledge of docker.
 
-The first step is to create our Dockerfile, For details please refer to [Dockerfile](./Dockerfile). The Dockerfile is based on basic docker image for OS only, ubuntu:16.04. Then we install Python3's general packages, including 
+The first step is to create our Dockerfile; for details please refer to [Dockerfile](./Dockerfile). The Dockerfile is based on basic docker image for OS only, ubuntu:16.04. Then we install Python3's general packages, including 
 
 - `Numpy`
 - `Scipy`
@@ -60,11 +60,11 @@ To apply scripts as environment, we could create docker-compose.yml for us to ea
 
 ### Create jupyter_notebook_config.py
 
-In this file, we set up Jupyter Notebook's IP, port and password, if set in environment. This jupyter_notebook_config.py will be copied to replace the original one in /root/.jupyter/. Note that basically we do not have to edit this file anymore.
+In this file, we set up Jupyter Notebook's IP, port and password, if set in environment; for details please refer to [jupyter_notebook_config.py](./jupyter_notebook_config.py).. This jupyter_notebook_config.py will be copied to replace the original one in /root/.jupyter/. Note that basically we do not have to edit this file anymore.
 
 ### Create run_jupyter.sh
 
-Finally, in this file we collect bash scripts to launch Jupyter Notebook. Note that
+Finally, in this file we collect bash scripts to launch Jupyter Notebook; for details please refer to [run_jupyter.sh](./run_jupyter.sh). Note that
 
 - `--allow-root`: is needed, since we use root to launch docker.
 - `--port 8888`: must be the same as docker's port for Jupyter Notebook.
