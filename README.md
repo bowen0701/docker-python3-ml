@@ -128,16 +128,16 @@ lsof -ti:8888 | xargs kill -9
 127.0.0.1 localunixsocket.local
 ```
 
-### Start/Stop Docker Container
+### Stop/Restart Docker Container
 
 ```
-# Start/stop/restart docker container
-sudo docker start <docker_container_id>
+# Stop/restart docker container
 sudo docker stop <docker_container_id>
 sudo docker restart <docker_container_id>
 
-# Stop/kill by docker compose.
+# Stop/restart by docker compose.
 docker-compose stop
+docker-compose restart
 docker-compose down
 ```
 
@@ -162,3 +162,8 @@ sudo docker rmi <docker_image_id>
 ```
 
 Now enjoy your docker for machine learning with Python3. :-)
+
+## References
+
+- https://store.docker.com/community/images/tensorflow/tensorflow
+- https://store.docker.com/community/images/dash00/tensorflow-python3-jupyter
