@@ -115,13 +115,13 @@ docker ps -a
 
 **Remarks:**
 
-- Remarks 1: If cannot access jupyter notebook server on browser, maybe port 8888 is ocupied by some unknown process, run this:
+- If cannot access jupyter notebook server on browser, maybe port 8888 is ocupied by some unknown process, run this:
 
 ```
 lsof -ti:8888 | xargs kill -9
 ```
 
-- Remarks 2: If your docker-compose is abnormally slow, add one of these in /etc/hosts by `sudo vim /etc/hosts`.
+- If your docker-compose is abnormally slow, add one of these in /etc/hosts by `sudo vim /etc/hosts`.
 
 ```
 127.0.0.1 localunixsocket
