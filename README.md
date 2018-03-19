@@ -56,20 +56,22 @@ Note that of courese we can add/delete any general / machine learning packages i
 
 ### Create docker-compose.yml
 
-To apply scripts as environment, we could create docker-compose.yml for us to easily launch docker; for details please refer to [docker-compose.yml](./docker-compose.yml). In this file we assign what docker image (docker-ml:latest) we would like to use, what ports (8888:8888) to connect and what volums (./notebooks:/notebooks) to share data between our docker container and the host computer. Note that we use docker-compose.yml's version 3 format.
+To apply scripts as environment, we could create docker-compose.yml for us to easily launch docker; for details please refer to [docker-compose.yml](./docker-compose.yml). In this file we assign what docker image (docker-ml:latest) we would like to use, what ports (8888:8888 and 6006:6006) to connect Jupyter Notebook and TensorBoard respectively, and what volums (./notebooks:/notebooks) to share data between our docker container and the host computer. Note that we use docker-compose.yml's version 3 format.
 
 ### Create jupyter_notebook_config.py
 
 In this file, we set up Jupyter Notebook's IP, port and password, if set in environment; for details please refer to [jupyter_notebook_config.py](./jupyter_notebook_config.py). This jupyter_notebook_config.py will be copied to replace the original one in /root/.jupyter/. Note that basically we do not have to edit this file anymore.
 
-### Create run_jupyter.sh
+### Create run_cmd.sh
 
-Finally, in this file we collect bash scripts to launch Jupyter Notebook; for details please refer to [run_jupyter.sh](./run_jupyter.sh). Note that
+Finally, in this file we collect bash scripts to launch Jupyter Notebook; for details please refer to [run_cmd.sh](./run_cmd.sh). Note that
 
 - `--allow-root`: is needed, since we use root to launch docker.
 - `--port 8888`: must be the same as docker's port for Jupyter Notebook.
 - `--ip 0.0.0.0`: reassign Jupyter Notebook server's IP.
 - `--NotebookApp.token=''`: optional, for simplicity we here disable the toker authentification. Note that this is not recommended for security reasons. Nevertheless, since I choose this to test launch on my local laptop I think it is ok for now.
+
+To lanch TensorBoard, the pipielined bash scripts follow similarly.
 
 ## Launch Docker
 
@@ -97,9 +99,9 @@ First based on newly built docker image, `docker-ml:latest`, to create docker co
 
 ```
 # Run docker image to create a container, by docker CLI.
-sudo docker run -it -p 8888:8888 docker-ml:latest
+sudo docker run -it -p 8888:8888 -p 6006:6006 docker-ml:latest
 # Run in background mode.
-sudo docker run -dt -p 8888:8888 docker-ml:latest
+sudo docker run -dt -p 8888:8888 -p 6006:6006 docker-ml:latest
 
 # Alternatively, run using docker-compose with docker-compose.yaml.
 docker-compose up
@@ -147,6 +149,12 @@ Finally, we can access Jupyter Notebook server from the browser at this URL:
 
 ```
 http://0.0.0.0:8888
+```
+
+### Access TensorBoard
+
+```
+http://0.0.0.0:6006
 ```
 
 Now enjoy your docker for machine learning with Python3 and Jupyter Notebook. :-)
