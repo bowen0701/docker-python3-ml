@@ -60,7 +60,7 @@ To apply scripts as environment, we could create docker-compose.yml for us to ea
 
 ### Create jupyter_notebook_config.py
 
-In this file, we set up Jupyter Notebook's IP, port and password, if set in environment; for details please refer to [jupyter_notebook_config.py](./jupyter_notebook_config.py).. This jupyter_notebook_config.py will be copied to replace the original one in /root/.jupyter/. Note that basically we do not have to edit this file anymore.
+In this file, we set up Jupyter Notebook's IP, port and password, if set in environment; for details please refer to [jupyter_notebook_config.py](./jupyter_notebook_config.py). This jupyter_notebook_config.py will be copied to replace the original one in /root/.jupyter/. Note that basically we do not have to edit this file anymore.
 
 ### Create run_jupyter.sh
 
