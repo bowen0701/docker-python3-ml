@@ -46,10 +46,10 @@ RUN pip3 install --upgrade pip \
 
 # Install machine learning packages.
 RUN pip3 --no-cache-dir install --upgrade \
-        http://download.pytorch.org/whl/cpu/torch-0.3.1-cp35-cp35m-linux_x86_64.whl \
-        torchvision
-        # tensorflow \
-        # tensorflow-tensorboard \
+        tensorflow \
+        tensorflow-tensorboard
+        # http://download.pytorch.org/whl/cpu/torch-0.3.1-cp35-cp35m-linux_x86_64.whl \
+        # torchvision \
         # keras \
         # xgboost \
         # pymc3 \
@@ -67,15 +67,15 @@ COPY notebooks /notebooks
 # Jupyter has issues with being run directly:
 #   https://github.com/ipython/ipython/issues/7062
 # We just add a little wrapper script.
-COPY run_jupyter.sh /
+COPY run_cmd.sh /
 
 # Jupyter Notebook
 EXPOSE 8888
 # TensorBoard
-# EXPOSE 6006
+EXPOSE 6006
 
 WORKDIR /notebooks
 
-RUN chmod +x /run_jupyter.sh
+RUN chmod +x /run_cmd.sh
 
-CMD ["/run_jupyter.sh"]
+CMD ["/run_cmd.sh"]
