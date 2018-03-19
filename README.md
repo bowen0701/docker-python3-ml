@@ -185,7 +185,7 @@ We can rebuild our local images following the naming rule, `<hub-user>/<repo-nam
 
 ```
 # Rebuild docker image.
-docker tag docker-ml bowen0701/docker-python3-ml-jupyter
+docker build -t bowen0701/docker-python3-ml-jupyter
 
 # Retag docker image.
 docker tag docker-ml bowen0701/docker-python3-ml-jupyter
