@@ -141,6 +141,16 @@ docker-compose restart
 docker-compose down
 ```
 
+### Access Jupyter Notebook 
+
+Finally, we can access Jupyter Notebook server from the browser at this URL:
+
+```
+http://0.0.0.0:8888
+```
+
+Now enjoy your docker for machine learning with Python3 and Jupyter Notebook. :-)
+
 ### Go into Bash Mode
 
 ```
@@ -161,9 +171,26 @@ sudo docker rm <docker_container_id>
 sudo docker rmi <docker_image_id>
 ```
 
-Now enjoy your docker for machine learning with Python3. :-)
+## Share Our Image to DockerHub
+
+We can rebuild our local images following the naming rule, `<hub-user>/<repo-name>[:<tag>]`, or re-tagging an existing local image.
+
+```
+# Rebuild docker image.
+docker tag docker-ml bowen0701/docker-python3-ml-jupyter
+
+# Retag docker image.
+docker tag docker-ml bowen0701/docker-python3-ml-jupyter
+```
+
+The final step is to push renamed docker image to DockerHub.
+
+```
+docker push bowen0701/docker-python3-ml-jupyter
+```
 
 ## References
 
 - https://store.docker.com/community/images/tensorflow/tensorflow
 - https://store.docker.com/community/images/dash00/tensorflow-python3-jupyter
+- https://towardsdatascience.com/how-docker-can-help-you-become-a-more-effective-data-scientist-7fc048ef91d5
