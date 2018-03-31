@@ -197,6 +197,22 @@ The final step is to push renamed docker image to DockerHub.
 docker push bowen0701/docker-python3-ml-jupyter
 ```
 
+### Pull Docker Image
+
+You can pull my docker image from [Docker Hub](https://hub.docker.com/r/bowen0701/docker-python3-ml-jupyter/), using 
+
+```
+docker pull bowen0701/docker-python3-ml-jupyter
+```
+
+Then retag docker image:
+
+```
+docker tag bowen0701/docker-python3-ml-jupyter docker-ml
+```
+
+By this retagging step, you can just use `docker-compose up` to launch docker service.
+
 ## References
 
 - https://store.docker.com/community/images/tensorflow/tensorflow
