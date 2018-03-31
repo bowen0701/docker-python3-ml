@@ -27,7 +27,7 @@ We can download and install docker on [docker website](https://www.docker.com/co
 
 Many people leverage dockers contributed from many others, this is convenient and efficient for us to ramp up fast. Nevertheless, I prefer making my own docker (almost) from scratch, from this experience I can learn a lot and acquire fundamental knowledge of docker.
 
-The first step is to create our Dockerfile; for details please refer to [Dockerfile](./Dockerfile). The Dockerfile is based on basic docker image for OS only, ubuntu:16.04. Then we install Python3's general packages, including 
+The first step is to create our Dockerfile; for details please refer to [Dockerfile](./Dockerfile). The Dockerfile is based on basic docker image for OS only, `ubuntu:16.04`. Then we install Python3's general packages, including 
 
 - `Numpy`
 - `Scipy`
