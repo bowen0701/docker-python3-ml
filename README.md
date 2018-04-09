@@ -56,7 +56,7 @@ Note that of courese we can add/delete any general / machine learning packages i
 
 ### Create docker-compose.yml
 
-To apply scripts as environment, we could create docker-compose.yml for us to easily launch docker, that is called configuration as code; for details please refer to [docker-compose.yml](./docker-compose.yml). In this file we assign what docker image (docker-ml:latest) we would like to use, what ports (8888:8888 and 6006:6006) to connect Jupyter Notebook and TensorBoard respectively, and what volums (./notebooks:/notebooks) to share data between our docker container and the host computer. Note that we use docker-compose.yml's version 3 format.
+To apply scripts as environment, we could create docker-compose.yml for us to easily launch docker, that is called **configuration as code;** for details please refer to [docker-compose.yml](./docker-compose.yml). In this file we assign what docker image (docker-ml:latest) we would like to use, what ports (8888:8888 and 6006:6006) to connect Jupyter Notebook and TensorBoard respectively, and what volums (./notebooks:/notebooks) to share data between our docker container and the host computer. Note that we use docker-compose.yml's version 3 format.
 
 ### Create jupyter_notebook_config.py
 
