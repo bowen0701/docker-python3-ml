@@ -40,15 +40,15 @@ The first step is to create our Dockerfile; for details please refer to [Dockerf
 
 and machine learning frameworks, including 
 
-- `PyTorch`
+- `MXNet`
 - `TensorFlow`
-- `Keras`
+- `PyTorch`
 - `XGBoost`
 - `PyMC`
 - `PyStan`
 - `Gensim`
-- `NLTK`, and 
-- `OpenCV`.
+- `NLTK`
+- `OpenCV`
 
 Finally, the remaining is to set up Jupyter Notebook. Note that we expose docker's port 8888 to Jupyter Notebook.
 
