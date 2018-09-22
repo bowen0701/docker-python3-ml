@@ -40,8 +40,8 @@ The first step is to create our Dockerfile; for details please refer to [Dockerf
 
 and machine learning frameworks, including 
 
-- `MXNet`
 - `TensorFlow`
+- `MXNet`
 - `PyTorch`
 - `XGBoost`
 - `PyMC`
