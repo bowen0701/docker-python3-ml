@@ -34,6 +34,7 @@ The first step is to create our Dockerfile; for details please refer to [Dockerf
 - `Pandas`
 - `Scikit-learn`
 - `Jupyter`
+- `Notedown`
 - `Matplotlib`
 - `Seaborn`
 - `Cython`, etc, 
