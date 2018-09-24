@@ -35,6 +35,7 @@ RUN pip3 install --upgrade pip \
         sklearn \
         ipykernel \
         jupyter \
+        notedown \
         matplotlib \
         seaborn \
         Cython \
