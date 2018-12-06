@@ -47,17 +47,17 @@ RUN pip3 install --upgrade pip \
 
 # Install machine learning packages.
 RUN pip3 --no-cache-dir install --upgrade \
-        # tensorflow \
-        # tensorflow-tensorboard \
+        tensorflow \
+        tensorflow-tensorboard \
         mxnet
-        # http://download.pytorch.org/whl/cpu/torch-0.3.1-cp35-cp35m-linux_x86_64.whl \
-        # torchvision \
-        # xgboost \
-        # pymc3 \
-        # pystan \
-        # gensim \
-        # nltk \
-        # opencv-python
+        http://download.pytorch.org/whl/cpu/torch-0.3.1-cp35-cp35m-linux_x86_64.whl \
+        torchvision \
+        xgboost \
+        pymc3 \
+        pystan \
+        gensim \
+        nltk \
+        opencv-python
 
 # Set up our notebook config.
 COPY jupyter_notebook_config.py /root/.jupyter/
