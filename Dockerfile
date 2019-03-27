@@ -48,7 +48,7 @@ RUN pip3 install --upgrade pip \
 # Install machine learning packages.
 RUN pip3 --no-cache-dir install --upgrade \
         tensorflow \
-        tensorflow-tensorboard \
+        tensorboard==1.12 \
         mxnet \
         http://download.pytorch.org/whl/cpu/torch-0.3.1-cp35-cp35m-linux_x86_64.whl \
         torchvision \
