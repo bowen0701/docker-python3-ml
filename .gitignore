@@ -1,6 +1,9 @@
 # Jupyter Notebook
 .ipynb_checkpoints
 
+# TensorBoard
+graphs
+
 # virtualenv
 .venv
 venv/
