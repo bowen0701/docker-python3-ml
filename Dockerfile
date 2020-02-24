@@ -28,7 +28,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     rm -rf /var/lib/apt/lists/*
 
 # Install Python3 general packages.
-RUN pip3 install --upgrade pip \
+RUN pip3 install --upgrade pip
+RUN pip3 install --upgrade \
         numpy \
         scipy \
         pandas \
@@ -38,26 +39,26 @@ RUN pip3 install --upgrade pip \
         notedown \
         matplotlib \
         seaborn \
-        Cython \
-        Pillow \
+        # Cython \
+        # Pillow \
         requests \
-        awscli \
+        # awscli \
         && \
     python3 -m ipykernel.kernelspec
 
 # Install machine learning packages.
 RUN pip3 --no-cache-dir install --upgrade \
-        tensorflow \
-        tensorflow-tensorboard \
-        mxnet
-        http://download.pytorch.org/whl/cpu/torch-0.3.1-cp35-cp35m-linux_x86_64.whl \
-        torchvision \
-        xgboost \
-        pymc3 \
-        pystan \
-        gensim \
-        nltk \
-        opencv-python
+        tensorflow==1.11.0
+        # tensorboard==1.12 \
+        # mxnet
+        # http://download.pytorch.org/whl/cpu/torch-0.3.1-cp35-cp35m-linux_x86_64.whl \
+        # torchvision \
+        # xgboost \
+        # pymc3 \
+        # pystan \
+        # gensim \
+        # nltk \
+        # opencv-python
 
 # Set up our notebook config.
 COPY jupyter_notebook_config.py /root/.jupyter/
@@ -75,7 +76,7 @@ EXPOSE 8888
 # TensorBoard
 EXPOSE 6006
 
-WORKDIR /notebooks
+# WORKDIR /notebooks
 
 RUN chmod +x /run_cmd.sh
 
