@@ -1,6 +1,6 @@
 # Docker settings: Ubuntu, Python3, pip, general machine learning frameworks, Jupyter Notebook.
 
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 LABEL maintainer="Bowen Li <bowen0701@gmail.com>"
 
@@ -9,14 +9,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
         curl \
         libfreetype6-dev \
-        libpng12-dev \
+        libpng-dev \
         libzmq3-dev \
         pkg-config \
         # python \
         # python-dev \
         # python-pip \
         # python-setuptools \
-        python3 \
+        python3.6 \
         python3-dev \
         python3-pip \
         python3-setuptools \
