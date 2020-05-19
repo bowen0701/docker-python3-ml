@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
         libpng-dev \
         libzmq3-dev \
         pkg-config \
+        graphviz \
         # python \
         # python-dev \
         # python-pip \
@@ -52,7 +53,8 @@ RUN pip3 --no-cache-dir install --upgrade \
         tensorboard==1.15.0 \
         # mxnet
         torch==1.2.0 \
-        torchvision==0.4.0
+        torchvision==0.4.0 \
+        torchviz
         # xgboost \
         # pymc3 \
         # pystan \
