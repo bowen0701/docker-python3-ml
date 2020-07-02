@@ -49,12 +49,12 @@ RUN pip3 install --upgrade \
 
 # Install machine learning packages.
 RUN pip3 --no-cache-dir install --upgrade \
-        tensorflow==1.15.0 \
-        tensorboard==1.15.0 \
-        # mxnet
         torch==1.2.0 \
         torchvision==0.4.0 \
-        torchviz
+        torchviz \
+        tensorflow==1.15.0 \
+        tensorboard==1.15.0 \
+        mxnet
         # xgboost \
         # pymc3 \
         # pystan \
