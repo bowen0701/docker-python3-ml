@@ -54,8 +54,8 @@ RUN pip3 --no-cache-dir install --upgrade \
         torchvision==0.4.0 \
         torchviz \
         tensorflow==1.15.0 \
-        tensorboard==1.15.0 \
-        mxnet
+        tensorboard==1.15.0
+        # mxnet
         # xgboost \
         # pymc3 \
         # pystan \
