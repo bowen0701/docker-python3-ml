@@ -40,6 +40,7 @@ RUN pip3 install --upgrade \
         notedown \
         matplotlib \
         seaborn \
+        tqdm \
         # Cython \
         # Pillow \
         requests \
