@@ -1,6 +1,6 @@
 # Jupyter Notebook
 .ipynb_checkpoints*
-notebook/*
+notebooks/*
 
 # TensorBoard
 graphs
